@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>main window</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row logo">
+  			<div class="col-md-12">
+  				<img data-src="holder.js/353x143" id="img-logo" alt="logo" src="images/gibsonlp.jpg" data-holder-rendered="true">
+				<form>
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+				<h1>Мои диалоги:</h1>
+				<button type="button" class="btn btn-default">Входящие</button>
+  			</div>
+  		</div>
+  		<div class="row content">
+    		<div class="col-md-9 col-sm-9 col-xs-9 col dialogs">
+				<div class="dialog">
+					<a href="javascript:showDialog()">
+						<div class="user-dialog-photo"><img alt="Вася" src="images/vasya.jpg"></div>
+						<div class="user-dialog-name">Вася</div>
+						<div class="user-message-last">
+							<div class="user-message-image"><img alt="Вася" src="images/vasya_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
+							<div class="user-message-time">22 лют 2015 о 19:26</div>
+						</div>
+						<div class="user-message-pre">
+							<div class="user-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet.</div>
+							<div class="user-message-time">21 лют 2015 о 19:26</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="dialog">
+					<a href="javascript:showDialog()">
+						<div class="user-dialog-photo"><img alt="Вася" src="images/petya.jpg"></div>
+						<div class="user-dialog-name">Петя</div>
+						<div class="user-message-last">
+							<div class="user-message-image"><img alt="Вася" src="images/sms_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
+							<div class="user-message-time">22 лют 2015 о 19:26</div>
+						</div>
+						<div class="user-message-pre">
+							<div class="user-message-image"><img alt="SMS" src="images/petya_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet.</div>
+							<div class="user-message-time">21 лют 2015 о 19:26</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="dialog">
+					<a href="javascript:showDialog()">
+						<div class="user-dialog-photo"><img alt="Вася" src="images/olya.jpg"></div>
+						<div class="user-dialog-name">Оля</div>
+						<div class="user-message-last">
+							<div class="user-message-image"><img alt="Вася" src="images/sms_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
+							<div class="user-message-time">22 лют 2015 о 19:26</div>
+						</div>
+						<div class="user-message-pre">
+							<div class="user-message-image"><img alt="SMS" src="images/olya_small.jpg"></div>
+							<div class="user-message">Lorem ipsum dolor sit amet.</div>
+							<div class="user-message-time">21 лют 2015 о 19:26</div>
+						</div>
+					</a>
+				</div>
+
+    		</div>
+    		<div class="col-md-3 col-sm-3 col-xs-3 col users">
+    			<ul>
+    				<li><a href="javascript:newDialog()"><img alt="Вася" src="images/vasya_small.jpg">Вася</a></li>
+    				<li><a href="javascript:newDialog()"><img alt="Петя" src="images/petya_small.jpg">Петя</a></li>
+    				<li><a href="javascript:newDialog()"><img alt="Катя" src="images/katya_small.jpg">Катя</a></li>
+    				<li><a href="javascript:newDialog()"><img alt="Оля" src="images/olya_small.jpg">Оля</a></li>
+    			</ul>
+    		</div>
+    		<div class="clear"></div>
+    	</div>	
+	</div>  	
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+    //Колонки одинаковой высоты
+    	var maxheight = 0;
+		$("div.col").each(function() {
+		  if($(this).height() > maxheight) { maxheight = $(this).height(); }
+		});
+		 
+		$("div.col").height(maxheight);
+    </script>
+  </body>
+</html>

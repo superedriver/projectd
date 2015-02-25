@@ -1,0 +1,186 @@
+/*.row div {
+	height: 300px;
+	background: #333;
+}
+*/
+html, body, .container, .content {
+	height: 100%;
+}
+
+.container {
+	width: 960px; 
+}
+
+.logo {
+	height: 250px;
+	width: 960px;
+	background: #ADD8E6;
+	position: absolute;
+}
+
+#img-logo{
+	width: 353px;
+	height: 143px;
+	float: left;
+}
+
+.logo form input{
+	width: 300px;
+	position: relative;
+	top: 20px;
+	left: 275px;
+}
+
+.logo h1 {
+	position: relative;
+	top: 150px;
+	right: 330px;
+	font-family: 'COMIC SANS MS', sans-serif;
+}
+
+.logo button {
+	position: relative;
+	top: 100px;
+	left: 481px;
+}
+
+.content {
+	background: #FAEBD7;
+	padding-top: 250px;
+	width: 960px;
+}
+
+.dialogs, .users {
+	min-height: 100%;
+	padding-top: 10px;
+	display: table-cell;	
+}
+
+.dialogs{
+	background: #ADD8E6;
+	border-top: 1px solid black;
+}
+
+.users{
+	background: #B0E0E6;
+	border: 1px solid black;
+}
+
+.content .users ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.content .users ul li {
+	margin-bottom: 10px;
+	font-size: 1.5em;
+}
+
+a {
+ text-decoration: none;	
+ color: #000; 
+ display: block; 
+}
+
+a:hover{
+ text-decoration: none;	
+ color: #000; 	
+}
+
+a:visited {
+ text-decoration: none;	
+ color: #000; 		
+}
+
+a:active {
+ text-decoration: none;	
+ color: #000; 
+}
+
+a:link {
+ text-decoration: none;	
+ color: #000; 
+}
+
+.content .users ul li a{
+ height: 40px;
+}
+
+.content .users ul li:hover{
+ background: #AFEEEE;
+}
+
+.content .users ul li img{
+	padding-right: 10px;
+}
+
+.container .content .dialog {
+	margin-bottom: 10px;
+	border: 1px solid black;
+	height: 100px;
+}
+
+.container .content .dialog>a {
+	background: #B0E0E6; /**/	
+}
+
+.container .content .dialog>a:hover {
+	background: #87CEEB; /**/	
+}
+
+.container .content .dialog .user-dialog-photo img{
+	margin: 10px;
+}
+
+.userPhoto{
+	float: left;
+}
+
+
+.user-dialog-photo {
+	float: left;
+}
+
+.user-dialog-info, .user-dialog-name {
+	float: left;	
+	height: 100px;		
+}
+
+.user-dialog-info {
+	padding-top: 10px;
+	padding-right: 20px;	
+}
+
+.user-dialog-name {
+	font-size: 2em;
+	width: 150px;
+	padding-top: 27px;
+}
+
+.user-message-image {
+	float: left;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+
+.user-message {
+	font-size: 1.2em;
+	padding-top: 10px;	
+}
+
+.user-message-time{
+	font-size: 0.7em;	
+}
+
+.user-message-last{
+	border-bottom: 1px dashed black; 
+}
+
+.user-message-pre, .user-message-last{
+	margin-left: 250px; 
+}
+
+.dialog:hover {
+	background: #B0E0E6;
+}
