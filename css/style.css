@@ -12,41 +12,41 @@ html, body, .container, .content {
 }
 
 .logo {
-	height: 250px;
+	height: 190px;
 	width: 960px;
 	background: #ADD8E6;
 	position: absolute;
 }
 
 #img-logo{
-	width: 353px;
-	height: 143px;
+	width: 500px;
+	height: 120px;
 	float: left;
 }
 
 .logo form input{
 	width: 300px;
 	position: relative;
-	top: 20px;
-	left: 275px;
+	top: 42px;
+	left: 127px;
 }
 
 .logo h1 {
 	position: relative;
-	top: 150px;
-	right: 330px;
+	top: 90px;
+	right: 490px;
 	font-family: 'COMIC SANS MS', sans-serif;
 }
 
 .logo button {
 	position: relative;
-	top: 100px;
-	left: 481px;
+	top: 43px;
+	left: 333px;
 }
 
 .content {
 	background: #FAEBD7;
-	padding-top: 250px;
+	padding-top: 190px;
 	width: 960px;
 }
 
