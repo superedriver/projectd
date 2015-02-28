@@ -1,186 +1,144 @@
-/*.row div {
-	height: 300px;
-	background: #333;
-}
-*/
-html, body, .container, .content {
+html, body, .container{
 	height: 100%;
 }
 
 .container {
-	width: 960px; 
+	/*background: #dcdcdc;*/
+	width: 960px;	
+}
+
+
+#img-logo{
+	float: left;
+	padding-top: 10px;
+	width: 280px;
+	height: 82px;
 }
 
 .logo {
-	height: 190px;
-	width: 960px;
-	background: #ADD8E6;
-	position: absolute;
+	height: 150px;
+	/*background: #cdcdcd;	*/
+	border-bottom: 2px solid #e4e8ed;
 }
 
-#img-logo{
-	width: 500px;
-	height: 120px;
+
+.container .logo form{
+	width: 280px;
+	position: relative;
+	top: -50px;
+	left: 685px;
+}
+
+.container .logo form input{
+	width: 176px;
 	float: left;
 }
 
-.logo form input{
-	width: 300px;
-	position: relative;
-	top: 42px;
-	left: 127px;
+.logo {
+	position: absolute;
+	width: 960px;
+	z-index: 9;
+	background-image: url('../images/logo-background-line.png');
+	background-repeat: repeat-x repeat-y;
 }
 
 .logo h1 {
 	position: relative;
-	top: 90px;
-	right: 490px;
-	font-family: 'COMIC SANS MS', sans-serif;
+	top: -37px;
+	right: -4px;
 }
 
-.logo button {
+.logo a.btn {
 	position: relative;
-	top: 43px;
-	left: 333px;
+	top: -90px;
+	left: 835px;
 }
 
-.content {
-	background: #FAEBD7;
-	padding-top: 190px;
-	width: 960px;
-}
-
-.dialogs, .users {
+.dialogs {
 	min-height: 100%;
-	padding-top: 10px;
-	display: table-cell;	
+	float: left;
 }
 
-.dialogs{
-	background: #ADD8E6;
-	border-top: 1px solid black;
+.users {
+	height: 100%;
+	float: left;
 }
 
-.users{
-	background: #B0E0E6;
-	border: 1px solid black;
+.content{
+	min-height: 100%;
+	padding-top: 150px;
+	border-left: 2px solid #e4e8ed;	
+	border-right: 2px solid #e4e8ed;
+	background: url('../images/content-background-line.png') repeat-y;
+	z-index: 8;
 }
 
 .content .users ul {
 	list-style-type: none;
-	margin: 0;
+	margin: 10px 0 0 0;
 	padding: 0;
 }
 
 .content .users ul li {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 	font-size: 1.5em;
-}
-
-a {
- text-decoration: none;	
- color: #000; 
- display: block; 
-}
-
-a:hover{
- text-decoration: none;	
- color: #000; 	
-}
-
-a:visited {
- text-decoration: none;	
- color: #000; 		
-}
-
-a:active {
- text-decoration: none;	
- color: #000; 
-}
-
-a:link {
- text-decoration: none;	
- color: #000; 
-}
-
-.content .users ul li a{
- height: 40px;
+	cursor: pointer;
 }
 
 .content .users ul li:hover{
- background: #AFEEEE;
+ background: #F5F5F5;
 }
 
 .content .users ul li img{
-	padding-right: 10px;
+	padding: 3px 10px 3px 3px;
 }
 
-.container .content .dialog {
-	margin-bottom: 10px;
-	border: 1px solid black;
-	height: 100px;
+.dialog {
+	/*border: 1px solid #e4e8ed;*/
+	/*margin-top: 10px;*/
+	border-bottom: 2px solid #e4e8ed;
+/*	border-radius: 15px;*/
 }
 
-.container .content .dialog>a {
-	background: #B0E0E6; /**/	
+.dialog table {
+	margin: 0 !important;
 }
 
-.container .content .dialog>a:hover {
-	background: #87CEEB; /**/	
+.dialog td.dialogs-photo {
+	width: 50px;
 }
 
-.container .content .dialog .user-dialog-photo img{
-	margin: 10px;
+.dialog td.dialogs-info {
+	width: 200px;
 }
 
-.userPhoto{
-	float: left;
+.dialog tr {
+	cursor: pointer;
+}
+.dialog td {
+	vertical-align: middle !important;
+	border-top: none !important;
+
 }
 
-
-.user-dialog-photo {
-	float: left;
-}
-
-.user-dialog-info, .user-dialog-name {
-	float: left;	
-	height: 100px;		
-}
-
-.user-dialog-info {
-	padding-top: 10px;
-	padding-right: 20px;	
-}
-
-.user-dialog-name {
-	font-size: 2em;
-	width: 150px;
-	padding-top: 27px;
-}
-
-.user-message-image {
-	float: left;
-	margin-top: 5px;
+.dialogs-message-image>img {
 	margin-right: 10px;
+	float: left;
 }
 
-.user-message {
-	font-size: 1.2em;
-	padding-top: 10px;	
+div.dialog-message-body{
+	padding-top: 10px;
+	overflow: hidden;	
 }
 
-.user-message-time{
-	font-size: 0.7em;	
+.dialogs-info-date {
+	font-size: .8em
 }
 
-.user-message-last{
-	border-bottom: 1px dashed black; 
+tr {
+	background-color: #fff !important; /*#f9f9f9*/
 }
 
-.user-message-pre, .user-message-last{
-	margin-left: 250px; 
-}
-
-.dialog:hover {
-	background: #B0E0E6;
+tr:hover {
+	background-color: #F5F5F5 !important; /*#f9f9f9*/
 }

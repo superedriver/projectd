@@ -19,79 +19,116 @@
   </head>
   <body>
   	<div class="container">
-  		<div class="row logo">
-  			<div class="col-md-12">
-  				<img data-src="holder.js/353x143" id="img-logo" alt="logo" src="images/logo.jpg" data-holder-rendered="true">
-				<form>
+   		<div class="row logo">
+  			<div class="col-md-12 col-sm-12 col-xs-12 wrap">
+  				<img data-src="holder.js/353x143" id="img-logo" alt="logo" src="images/logo.png" data-holder-rendered="true">
+				<form><!-- class="navbar-form navbar-left" role="search" -->
+					<!-- <div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div> -->
+					<!--  -->
 					<input type="text" class="form-control" placeholder="Search...">
+					<button type="submit" class="btn btn-default">Найти</button>
 				</form>
 				<h1>Мои диалоги:</h1>
-				<button type="button" class="btn btn-default">Входящие</button>
+				<a href="#" class="btn btn-default">Входящие</a>
   			</div>
   		</div>
   		<div class="row content">
     		<div class="col-md-9 col-sm-9 col-xs-9 col dialogs">
-				<div class="dialog">
-					<a href="javascript:showDialog()">
-						<div class="user-dialog-photo"><img alt="Вася" src="images/vasya.jpg"></div>
-						<div class="user-dialog-name">Вася</div>
-						<div class="user-message-last">
-							<div class="user-message-image"><img alt="Вася" src="images/vasya_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
-							<div class="user-message-time">22 лют 2015 о 19:26</div>
-						</div>
-						<div class="user-message-pre">
-							<div class="user-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet.</div>
-							<div class="user-message-time">21 лют 2015 о 19:26</div>
-						</div>
-					</a>
+    			<div class="dialog">
+					<table class="table table-striped table-hover ">
+						<tbody>
+							<tr>
+								<td class="dialogs-photo"><img alt="Вася" src="images/vasya.jpg"></td>
+								<td class="dialogs-info">
+									<div class="dialogs-info-name h3">Вася</div>
+									<div class="dialogs-info-date text-muted">25 лют 2015 о 13:53</div>
+								</td>
+								<td class="dialogs-msg-contents">
+									<div class="dialogs-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
+									<div class="dialog-message-body">Lorem ipsum dolor sit amet.</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+    			<div class="dialog">
+					<table class="table table-striped table-hover ">
+						<tbody>
+							<tr>
+								<td class="dialogs-photo"><img alt="Вася" src="images/vasya.jpg"></td>
+								<td class="dialogs-info">
+									<div class="dialogs-info-name h3">Вася</div>
+									<div class="dialogs-info-date text-muted">25 лют 2015 о 13:53</div>
+								</td>
+								<td class="dialogs-msg-contents">
+									<div class="dialogs-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
+									<div class="dialog-message-body">Lorem ipsum dolor sit amet.</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+    			<div class="dialog">
+					<table class="table table-striped table-hover ">
+						<tbody>
+							<tr>
+								<td class="dialogs-photo"><img alt="Вася" src="images/vasya.jpg"></td>
+								<td class="dialogs-info">
+									<div class="dialogs-info-name h3">Вася</div>
+									<div class="dialogs-info-date text-muted">25 лют 2015 о 13:53</div>
+								</td>
+								<td class="dialogs-msg-contents">
+									<div class="dialogs-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
+									<div class="dialog-message-body">Lorem ipsum dolor sit amet.</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+    			<div class="dialog">
+					<table class="table table-striped table-hover ">
+						<tbody>
+							<tr>
+								<td class="dialogs-photo"><img alt="Вася" src="images/vasya.jpg"></td>
+								<td class="dialogs-info">
+									<div class="dialogs-info-name h3">Вася</div>
+									<div class="dialogs-info-date text-muted">25 лют 2015 о 13:53</div>
+								</td>
+								<td class="dialogs-msg-contents">
+									<div class="dialogs-message-image"><img alt="SMS" src="images/sms_small.jpg"></div>
+									<div class="dialog-message-body">Lorem ipsum dolor sit amet.</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
-				<div class="dialog">
-					<a href="javascript:showDialog()">
-						<div class="user-dialog-photo"><img alt="Вася" src="images/petya.jpg"></div>
-						<div class="user-dialog-name">Петя</div>
-						<div class="user-message-last">
-							<div class="user-message-image"><img alt="Вася" src="images/sms_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
-							<div class="user-message-time">22 лют 2015 о 19:26</div>
-						</div>
-						<div class="user-message-pre">
-							<div class="user-message-image"><img alt="SMS" src="images/petya_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet.</div>
-							<div class="user-message-time">21 лют 2015 о 19:26</div>
-						</div>
-					</a>
-				</div>
 
-				<div class="dialog">
-					<a href="javascript:showDialog()">
-						<div class="user-dialog-photo"><img alt="Вася" src="images/olya.jpg"></div>
-						<div class="user-dialog-name">Оля</div>
-						<div class="user-message-last">
-							<div class="user-message-image"><img alt="Вася" src="images/sms_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet, consectetur.</div>
-							<div class="user-message-time">22 лют 2015 о 19:26</div>
-						</div>
-						<div class="user-message-pre">
-							<div class="user-message-image"><img alt="SMS" src="images/olya_small.jpg"></div>
-							<div class="user-message">Lorem ipsum dolor sit amet.</div>
-							<div class="user-message-time">21 лют 2015 о 19:26</div>
-						</div>
-					</a>
-				</div>
 
-    		</div>
+	   		</div>
     		<div class="col-md-3 col-sm-3 col-xs-3 col users">
     			<ul>
-    				<li><a href="javascript:newDialog()"><img alt="Вася" src="images/vasya_small.jpg">Вася</a></li>
-    				<li><a href="javascript:newDialog()"><img alt="Петя" src="images/petya_small.jpg">Петя</a></li>
-    				<li><a href="javascript:newDialog()"><img alt="Катя" src="images/katya_small.jpg">Катя</a></li>
-    				<li><a href="javascript:newDialog()"><img alt="Оля" src="images/olya_small.jpg">Оля</a></li>
+    				<li><img alt="Вася" src="images/vasya_small.jpg">Вася</li>
+    				<li><img alt="Петя" src="images/petya_small.jpg">Петя</li>
+    				<li><img alt="Катя" src="images/katya_small.jpg">Катя</li>
+    				<li><img alt="Оля" src="images/olya_small.jpg">Оля</li>
+    				<!-- <li><img alt="Вася" src="images/vasya_small.jpg">Вася</li>
+    				<li><img alt="Петя" src="images/petya_small.jpg">Петя</li>
+    				<li><img alt="Катя" src="images/katya_small.jpg">Катя</li>
+    				<li><img alt="Оля" src="images/olya_small.jpg">Оля</li>
+    				<li><img alt="Вася" src="images/vasya_small.jpg">Вася</li>
+    				<li><img alt="Петя" src="images/petya_small.jpg">Петя</li>
+    				<li><img alt="Катя" src="images/katya_small.jpg">Катя</li>
+    				<li><img alt="Оля" src="images/olya_small.jpg">Оля</li>
+    				<li><img alt="Вася" src="images/vasya_small.jpg">Вася</li>
+    				<li><img alt="Петя" src="images/petya_small.jpg">Петя</li>
+    				<li><img alt="Катя" src="images/katya_small.jpg">Катя</li>
+    				<li><img alt="Оля" src="images/olya_small.jpg">Оля</li> -->
     			</ul>
     		</div>
-    		<div class="clear"></div>
+    		<div style="clear:both;"></div>
     	</div>	
 	</div>  	
 
@@ -99,14 +136,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
-    <script type="text/javascript">
-    //Колонки одинаковой высоты
-    	var maxheight = 0;
-		$("div.col").each(function() {
-		  if($(this).height() > maxheight) { maxheight = $(this).height(); }
-		});
-		 
-		$("div.col").height(maxheight);
-    </script>
   </body>
 </html>
