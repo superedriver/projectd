@@ -35,7 +35,7 @@ html, body, .container{
 	height: 150px;	
 	position: absolute;
 	width: 960px;
-	background-image: url('../images/logo-background-line.png');
+	background-image: url('../images/logo-background.png');
 	background-repeat: repeat-x repeat-y;
 }
 
@@ -54,6 +54,7 @@ html, body, .container{
 .dialogs {
 	min-height: 100%;
 	float: left;
+	padding: 0 !important;
 }
 
 .users {
@@ -138,3 +139,73 @@ tr {
 tr:hover {
 	background-color: #F5F5F5 !important; /*#f9f9f9*/
 }
+
+
+
+
+
+/***************DIALOGS***************/
+
+.dialogs-with-users {
+	height: 30px;
+	padding: 0;
+	margin: 0;
+	border-bottom: 2px solid #e4e8ed;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.dialogs-with-users>ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 0; /*backspaces between li*/
+}
+
+.dialogs-with-users>ul>li {
+	height: 30px;
+	display: inline-block;
+}
+
+.dialogs-with-users>ul>li h4 {
+	padding: 0;
+	margin: 5px 10px;	
+	float: left;	
+}
+
+.dialogs-user-close{
+	float: left;
+	margin-right: 5px;
+}
+
+.dialogs-with-users>ul>li.dialog-active {
+	background-color: #e5e4e4;
+}
+
+.dialogs-with-users>ul>li:hover {
+	background-color: #F5F5F5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
