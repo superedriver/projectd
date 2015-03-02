@@ -91,10 +91,7 @@ html, body, .container{
 }
 
 .dialog {
-	/*border: 1px solid #e4e8ed;*/
-	/*margin-top: 10px;*/
 	border-bottom: 2px solid #e4e8ed;
-/*	border-radius: 15px;*/
 }
 
 .dialog table {
@@ -132,11 +129,11 @@ div.dialog-message-body{
 	font-size: .8em
 }
 
-tr {
+.dialog tr {
 	background-color: #fff !important; /*#f9f9f9*/
 }
 
-tr:hover {
+.dialog tr:hover {
 	background-color: #F5F5F5 !important; /*#f9f9f9*/
 }
 
@@ -165,11 +162,12 @@ tr:hover {
 .dialogs-with-users>ul>li {
 	height: 30px;
 	display: inline-block;
+	border-right: 2px solid #e4e8ed;
 }
 
 .dialogs-with-users>ul>li h4 {
 	padding: 0;
-	margin: 5px 10px;	
+	margin: 5px 20px;	
 	float: left;	
 }
 
@@ -186,24 +184,74 @@ tr:hover {
 	background-color: #F5F5F5;
 }
 
+#input-text {
+	border-bottom: 2px solid #e4e8ed;
+	border-top: 2px solid #e4e8ed;	
+	background-color: #F5F5F5;
+	height: 100px;
+}
+
+#it-user-holder img, #it-receiver-holder img{
+	margin: 10px;
+}
+
+#input-text textarea {
+	resize: none; 
+	height: 55px; 
+	width: 400px;
+	float: left;
+	margin-right: 10px;
+}
+
+#input-text a {
+	margin-top: 17px; 
+}
+
+#it-receiver-holder img {
+	padding-left: 5px;
+}
 
 
+#correspondence {
+	height: 385px;
+	overflow: auto;
+	padding-top: 20px;
+}
+
+#correspondence tr{
+	display: block;
+	margin-bottom: 10px;
+}
+
+#correspondence tr td{
+	vertical-align: top;
+}
+
+.message-left-space{
+	width: 40px;
+}
 
 
+.message-body {
+	width: 500px;
+}
 
+.message-body-text {
+	position: relative;
+}
 
+.message-author {
+	padding-right:15px;
+}
 
+.message-time {
+	width: 70px;
+	font-size: .8em;
+}
 
-
-
-
-
-
-
-
-
-
-
+.message-body-author-name a{
+	color: #317EAC;
+}
 
 
 
