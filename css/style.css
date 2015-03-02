@@ -254,6 +254,34 @@ div.dialog-message-body{
 }
 
 
+/*******************MESSAGE*********************/
 
+#new-message {
+	background-color: #F5F5F5;
+	height: 517px;
+}
 
+#new-message h3{
+	margin-top: 0;
+	padding: 10px 50px;
+}
 
+#new-message h3 a{
+	color: #317EAC;
+	margin-left: 5px;
+}
+
+#new-message form {
+	padding: 0 50px;
+}
+
+#new-message textarea {
+	resize: none; 
+	height: 400px; 
+	margin-top: 10px;
+}
+
+#new-message form a {
+	float: right;
+	margin-top: 10px;
+}
