@@ -18,19 +18,19 @@ html, body, .container{
 	height: 82px;
 }
 
-.container .logo form{
+.container .header form{
 	width: 280px;
 	position: relative;
 	top: -50px;
 	left: 685px;
 }
 
-.container .logo form input{
+.container .header form input{
 	width: 176px;
 	float: left;
 }
 
-.logo {
+.header {
 	border-bottom: 2px solid #e4e8ed;	
 	height: 150px;	
 	position: absolute;
@@ -39,25 +39,25 @@ html, body, .container{
 	background-repeat: repeat-x repeat-y;
 }
 
-.logo h1 {
+.header h1 {
 	position: relative;
 	top: -37px;
 	right: -4px;
 }
 
-.logo a.btn {
+.header a.btn {
 	position: relative;
 	top: -90px;
 	left: 835px;
 }
 
-.dialogs {
+.wrapper {
 	min-height: 100%;
 	float: left;
 	padding: 0 !important;
 }
 
-.users {
+.right-column {
 	height: 100%;
 	float: left;
 }
@@ -70,49 +70,58 @@ html, body, .container{
 	background: url('../images/content-background-line.png') repeat-y;
 }
 
-.content .users ul {
+.content .right-column ul {
 	list-style-type: none;
 	margin: 10px 0 0 0;
 	padding: 0;
 }
 
-.content .users ul li {
+.content .right-column ul li {
 	/*margin-bottom: 10px;*/
 	font-size: 1.5em;
 	cursor: pointer;
 }
 
-.content .users ul li:hover{
+.content .right-column ul li:hover{
  background: #F5F5F5;
 }
 
-.content .users ul li img{
+.content .right-column ul li img{
 	padding: 3px 10px 3px 3px;
 }
 
+
+
+/*dialog*/
 .dialog {
 	border-bottom: 2px solid #e4e8ed;
-}
-
-.dialog table {
-	margin: 0 !important;
-}
-
-.dialog td.dialogs-photo {
-	width: 50px;
-}
-
-.dialog td.dialogs-info {
-	width: 200px;
-}
-
-.dialog tr {
+	margin: 0 !important;	
 	cursor: pointer;
+	background-color: #fff !important; /*#f9f9f9*/	
+	height: 100px;	
 }
-.dialog td {
-	vertical-align: middle !important;
-	border-top: none !important;
 
+
+.dialog:hover {
+	background-color: #F5F5F5 !important; /*#f9f9f9*/
+}
+
+.dialogs-photo {
+	float: left;
+}
+
+.dialogs-photo img{
+	margin: 10px;
+}
+
+.dialogs-info {
+	width: 200px;
+	float: left;
+	padding: 8px;
+}
+
+.dialogs-msg-contents{
+	padding-top: 28px;
 }
 
 .dialogs-message-image>img {
@@ -120,7 +129,7 @@ html, body, .container{
 	float: left;
 }
 
-div.dialog-message-body{
+.dialog-message-body{
 	padding-top: 10px;
 	overflow: hidden;	
 }
@@ -129,13 +138,7 @@ div.dialog-message-body{
 	font-size: .8em
 }
 
-.dialog tr {
-	background-color: #fff !important; /*#f9f9f9*/
-}
 
-.dialog tr:hover {
-	background-color: #F5F5F5 !important; /*#f9f9f9*/
-}
 
 
 
@@ -143,6 +146,7 @@ div.dialog-message-body{
 
 /***************DIALOGS***************/
 
+/*list of users*/
 .dialogs-with-users {
 	height: 30px;
 	padding: 0;
@@ -184,12 +188,16 @@ div.dialog-message-body{
 	background-color: #F5F5F5;
 }
 
+
+/*input message for dialog*/
+
 #input-text {
 	border-bottom: 2px solid #e4e8ed;
 	border-top: 2px solid #e4e8ed;	
 	background-color: #F5F5F5;
 	height: 100px;
 }
+
 
 #it-user-holder img, #it-receiver-holder img{
 	margin: 10px;
@@ -212,41 +220,54 @@ div.dialog-message-body{
 }
 
 
+
+/*dialog whith user*/
 #correspondence {
 	height: 385px;
 	overflow: auto;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
-#correspondence tr{
-	display: block;
+.message{
+	margin-top: 10px;
+	clear: both;
+}
+
+.message:last-child {
 	margin-bottom: 10px;
 }
 
-#correspondence tr td{
-	vertical-align: top;
+.clear{
+	clear: both;
 }
 
 .message-left-space{
+	float: left;
+	clear: left;
 	width: 40px;
+	height: 50px;
+}
+
+.message-author {
+	float: left;
+	padding-right:15px;
 }
 
 
 .message-body {
 	width: 500px;
+	float: left;
 }
 
 .message-body-text {
 	position: relative;
 }
 
-.message-author {
-	padding-right:15px;
-}
-
 .message-time {
 	width: 70px;
 	font-size: .8em;
+	float: left;
+	clear: right;
 }
 
 .message-body-author-name a{
