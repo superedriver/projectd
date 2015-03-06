@@ -317,7 +317,12 @@ html, body, .container{
 	margin-top: 10px;
 }
 
-#new-message form a {
+#new-message form a.btn-cansel-message {
+	float: left;
+	margin-top: 10px;
+}
+
+#new-message form a.btn-send-message {
 	float: right;
 	margin-top: 10px;
 }
