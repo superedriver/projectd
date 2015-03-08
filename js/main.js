@@ -32,27 +32,46 @@ function addDialog(dialogId) {
   }
 
   var months =['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+  // index of this dialog in dialogs[]
+  var indexDialog = _.findIndex(dialogs, {'id': dialogId});
+  var thisDialog = dialogs[indexDialog];
+  // message creator's index in users[]  
+  var indexMessageSender = _.findIndex(users, {'id': dialogs[indexDialog].sender});
+  // message receiver's index in users[]    
+  var indexMessageReceiver = _.findIndex(users, {'id': dialogs[indexDialog].receiver});
+  // text of message index in messages[]      
+  var indexMessage = _.findIndex(messages, {'id': dialogs[indexDialog].text});
+  var thisMessage = messages[indexMessage];
 
-  var responderName = users[dialogId.responder].name;
-  var responderLogo = users[dialogId.responder].logo;
+  // this user's ID in users[]
+  var idThisUser = 1;
+  // this user's index in users[]
+  var indexThisUser = _.findIndex(users, {'id': idThisUser});
+  
+  // recipient's index in users[]
+  var indexRecipient = indexMessageSender;
+  if (indexRecipient == indexThisUser) {indexRecipient = indexMessageReceiver};
+
+  var recipientName = users[indexRecipient].name;
+  var recipientLogo = users[indexRecipient].logo;
   // users[0] - Maks
-  var senderName = (dialogId.send_status) ? users[dialogId.responder].name : users[0].name;
-  var senderLogo = (dialogId.send_status) ? users[dialogId.responder].logo : users[0].logo;
+  var senderName = users[indexMessageSender].name;
+  var senderLogo = users[indexMessageSender].logo;
   // reduction messageTime to view - DD Month YYYY в HH:MM:SS
-  var messageTime = addNull(dialogId.time.getDate()) + ' ' + months[dialogId.time.getMonth()] + ' ' + dialogId.time.getFullYear() + ' в ' + addNull(dialogId.time.getHours()) + ':' + addNull(dialogId.time.getMinutes()) + ':' + addNull(dialogId.time.getSeconds());
+  var messageTime = addNull(thisDialog.time.getDate()) + ' ' + months[thisDialog.time.getMonth()] + ' ' + thisDialog.time.getFullYear() + ' в ' + addNull(thisDialog.time.getHours()) + ':' + addNull(thisDialog.time.getMinutes()) + ':' + addNull(thisDialog.time.getSeconds());
   // Cutting the long text
-  messageText = getMessageText(dialogId.text);
+  var messageText = getMessageText(thisMessage.text);
   // Create and append the dialog
-  var dialog = '<div class="dialog"><div class="dialogs-photo"><img alt="' + responderName + '" src="' + responderLogo + '"></div><div class="dialogs-info"><div class="dialogs-info-name h3">' + responderName + '</div><div class="dialogs-info-date text-muted">' + messageTime + '</div></div><div class="dialogs-msg-contents"><div class="dialogs-message-image"><img alt="' + senderName + '" src="' + senderLogo + '"></div><div class="dialog-message-body">' + messageText + '</div></div></div>';
+  var dialog = '<div class="dialog"><div class="dialogs-photo"><img alt="' + recipientName + '" src="' + recipientLogo + '"></div><div class="dialogs-info"><div class="dialogs-info-name h3">' + recipientName + '</div><div class="dialogs-info-date text-muted">' + messageTime + '</div></div><div class="dialogs-msg-contents"><div class="dialogs-message-image"><img alt="' + senderName + '" src="' + senderLogo + '"></div><div class="dialog-message-body">' + messageText + '</div></div></div>';
   $('.wrapper').append(dialog);
 }
 
+addDialog(1);
+addDialog(2);
+addDialog(3);
+addDialog(4);
+addDialog(5);
 
-addDialog(messagesData[0]);
-addDialog(messagesData[1]);
-addDialog(messagesData[2]);
-addDialog(messagesData[3]);
-addDialog(messagesData[4]);
 
 // Show the list of users in the right column
 showUsers();
