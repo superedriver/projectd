@@ -38,6 +38,46 @@ var dialogs = [
     time: new Date(2015, 2, 5, 17, 1, 1),
     text: 5,
     read_status: true
+  },
+  {
+    id: 6,
+    sender: 1, // message sender ID in users[]
+    receiver: 1, // message receiver ID in users[]
+    time: new Date(2015, 2, 4, 13, 8, 17), // message time
+    text: 6, // message text ID in messages[]
+    read_status: false, // true - message has been read
+  },
+  {
+    id: 7,
+    sender: 2,
+    receiver: 1,
+    time: new Date(2015, 2, 3, 14, 1, 25),
+    text: 7,
+    read_status: true
+  },
+  {
+    id: 8,
+    sender: 1,
+    receiver: 3,
+    time: new Date(2015, 2, 2, 15, 15, 11),
+    text: 8,
+    read_status: true
+  },
+  {
+    id: 9,
+    sender: 4,
+    receiver: 1,
+    time: new Date(2015, 2, 1, 16, 10, 15),
+    text: 9,
+    read_status: true
+  },
+  {
+    id: 10,
+    sender: 1,
+    receiver: 5,
+    time: new Date(2015, 2, 5, 17, 1, 11),
+    text: 10,
+    read_status: false
   }
 ];
 

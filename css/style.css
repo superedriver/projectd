@@ -99,13 +99,17 @@ html, body, .container{
 	border-bottom: 2px solid #e4e8ed;
 	margin: 0 !important;	
 	cursor: pointer;
-	background-color: #fff !important; /*#f9f9f9*/	
+	background-color: #fff !important;
 	height: 100px;	
 }
 
+/*if message hasn`t been read*/
+.notread {
+	background-color: #f0f0f0 !important; 
+}
 
 .dialog:hover {
-	background-color: #F5F5F5 !important; /*#f9f9f9*/
+	background-color: #F5F5F5 !important;
 }
 
 .dialogs-photo {
