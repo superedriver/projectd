@@ -2,21 +2,15 @@ $(function(){
 
 // Show user list in the right column
 function showUsers() {
-  var userList = $('<ul>').appendTo('.right-column');
-
-  for (var i in users) {
-    var userInfo = $('<li>').appendTo(userList);
-    var currentUser = users[i];
-    var userString = '<img alt="' + currentUser.name + '" src="' + currentUser.logo + '">' + currentUser.name;
-    // var userString = '<img alt="' + users[i].name + '" src="' + users[i].logo + '">' + users[i].name;
-    userInfo.html(userString);
-  }
+  // usersTemplate in templates.js
+  $('.right-column').html(Mustache.render(usersTemplate, { listOfUsers: users }));
 }
 
 // Show 'create new message form' when you click on user from userllist in the right column
 function createNewMessage() {
-  var stringCreateNewMessage = '<div id="new-message"><h3>Новое сообщение для:<a href="">' + $(this).text() + '</a></h3><form class="form-horizontal"><textarea class="form-control" rows="2" id="textArea" placeholder="Введите сообщение" ></textarea><a href="#" class="btn btn-default btn-cansel-message">Отменить</a><a href="#" class="btn btn-default btn-send-message">Отправить</a></form></div>'
-  $('.wrapper').html(stringCreateNewMessage);
+  // stringCreateNewMessage in templates.js
+  $('.wrapper').html(createNewMessageString);
+  // button "Отменить"
   $('#new-message form a.btn-cansel-message').click(function() {
     location.reload();
     });	
@@ -36,10 +30,10 @@ function  showDialogs() {
       return (messageText.length < 50) ? messageText : messageText.slice(0, 47) + '...';
     }
 
-    var months =['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
     // index of this message in messages[]
     var indexDialog = _.findIndex(messages, {'id': dialogId});
     var thisMessage = messages[indexDialog];
+    
     // message sender in users[]  
     var messageSender = _.find(users, {'id': thisMessage.sender_id});
     // message receiver in users[]    
@@ -49,17 +43,30 @@ function  showDialogs() {
     // recipient's index in users[]
     var recipient = messageSender;
     if (recipient == thisUser) {recipient = messageReceiver};
+    
     // reduction messageTime to view - DD Month YYYY в HH:MM:SS
+    var months =['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];    
     var messageTime = addNull(thisMessage.created_at.getDate()) + ' ' + months[thisMessage.created_at.getMonth()] + ' ' + thisMessage.created_at.getFullYear() + ' в ' + addNull(thisMessage.created_at.getHours()) + ':' + addNull(thisMessage.created_at.getMinutes()) + ':' + addNull(thisMessage.created_at.getSeconds());
     // Cutting the long text
     var messageText = getMessageText(thisMessage.text); 
-    // Create and append the dialog
-    var dialog = '<div class="dialog"><div class="dialogs-photo"><img alt="' + recipient.name + '" src="' + recipient.logo + '"></div><div class="dialogs-info"><div class="dialogs-info-name h3">' + recipient.name + '</div><div class="dialogs-info-date text-muted">' + messageTime + '</div></div><div class="dialogs-msg-contents"><div class="dialogs-message-image"><img alt="' + messageSender.name + '" src="' + messageSender.logo + '"></div><div class="dialog-message-body">' + messageText + '</div></div></div>';
-    $('.wrapper').append(dialog);
+    // Container for saving data of the dialog
+    var dialogDataContainer =  
+      {
+        dialog_recipient: recipient,
+        dialog_sender: messageSender,
+        dialog_body: 
+          {
+            created_at: messageTime,
+            text: messageText
+          }        
+      }
+    // render and add the dialog to wrapper
+    $('.wrapper').append(Mustache.render(dialogTemplate, dialogDataContainer));
     // If message hasn`t been read -> dark it 
     if (!thisMessage.read_status) {$('.wrapper .dialog:last-child').addClass('notread');}; 
   }
 
+  // collect last dialog whith each user
   function lastDialogWithUser(recipientId) {
     var correspondence;
 
@@ -78,6 +85,7 @@ function  showDialogs() {
     // add the lastest dialog with this user to list
     usersDialogList.push(_.last(correspondence));
   }
+
   // last dialogs
   var usersDialogList = [];
   // get last dialog with each user
@@ -103,8 +111,4 @@ $('.right-column ul li').click(createNewMessage);
 $('.header>.wrap>a').click(function() {
   location.reload();
   });
-
-
-
-
 });
