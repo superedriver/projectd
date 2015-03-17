@@ -16,6 +16,7 @@ html, body, .container{
 	padding-top: 10px;
 	width: 280px;
 	height: 82px;
+	cursor: pointer;
 }
 
 .container .header form{
@@ -243,8 +244,9 @@ html, body, .container{
 	padding-top: 10px;
 }
 
+
 .message{
-	margin-top: 10px;
+	margin-top: 5px;
 	clear: both;
 }
 
@@ -283,7 +285,7 @@ html, body, .container{
 }
 
 .message-time {
-	width: 70px;
+	width: 90px;
 	font-size: .8em;
 	float: left;
 	clear: right;
@@ -291,6 +293,11 @@ html, body, .container{
 
 .message-body-author-name a{
 	color: #317EAC;
+}
+
+.message-not-read-wrapper {
+	float: left;
+	padding: 5px;
 }
 
 

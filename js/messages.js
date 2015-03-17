@@ -88,5 +88,32 @@ var messages = [
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ea eaque explicabo ab maiores enim qui, nesciunt aspernatur corporis ad! ipsum dolor sit amet, consectetur adipisicing elit.",
     read_status: false,
     delete_status: false
+  },
+  {
+    id: 11,
+    sender_id: 1,
+    receiver_id: 4,
+    created_at: new Date(2015, 2, 7, 17, 1, 11),
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ea eaque explicabo ab maiores enim qui, nesciunt aspernatur corporis ad! ipsum dolor sit amet, consectetur adipisicing elit.",
+    read_status: true,
+    delete_status: false
+  },
+  {
+    id: 12,
+    sender_id: 4,
+    receiver_id: 1,
+    created_at: new Date(2015, 2, 8, 16, 10, 5),
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae harum dignissimos recusandae, dolorum quisquam suscipit, ea impedit minima aliquid repellendus possimus consectetur cum rem voluptatem dicta eaque reiciendis commodi. Nobis, repellat fugiat facilis deleniti dolore optio placeat beatae, eum doloremque labore molestias ipsa, iusto maiores vitae quis qui ipsam? Repellat!",
+    read_status: true,
+    delete_status: false
+  },
+  {
+    id: 13,
+    sender_id: 1,
+    receiver_id: 4,
+    created_at: new Date(2015, 2, 8, 18, 10, 5),
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae harum dignissimos recusandae, dolorum quisquam suscipit, ea impedit minima aliquid repellendus possimus consectetur cum rem voluptatem dicta eaque reiciendis commodi. Nobis, repellat fugiat facilis deleniti dolore optio placeat beatae, eum doloremque labore molestias ipsa, iusto maiores vitae quis qui ipsam? Repellat!",
+    read_status: true,
+    delete_status: false
   }
 ];
