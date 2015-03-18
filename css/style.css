@@ -47,9 +47,23 @@ html, body, .container{
 }
 
 .header a.btn {
+	position: absolute;
+	top: 97px;
+	left: 851px;#317EAC
+}
+
+.header ul {
 	position: relative;
-	top: -90px;
-	left: 835px;
+	top: -14px;
+	left: -14px;
+	margin: 0;
+	border-bottom-color: transparent;
+	display: inline-block;
+}
+
+
+.header ul li a{
+	color: #317EAC;
 }
 
 .wrapper {

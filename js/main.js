@@ -8,6 +8,9 @@ function showUsers() {
 }
 
 
+
+
+
 // Show 'create new message form' when you click on user from userllist in the right column
 function createNewMessage() {
   // stringCreateNewMessage in templates.js
@@ -28,7 +31,10 @@ function createNewMessage() {
     if (newMessageText) {
       addNewMessage(newMessageReciever, newMessageText);
     };
-  });    	
+  });
+
+  $('.header ul li').eq(1).removeClass('active');
+  $('.header ul li').eq(0).removeClass('active');
 }
 
 
@@ -134,6 +140,9 @@ function  showDialogs() {
     showCorrespondenceWithUser(responder);    
   }); 
 
+  $('.header ul li').eq(0).addClass('active');
+  $('.header ul li').eq(1).removeClass('active');
+
 }
 
 
@@ -185,11 +194,13 @@ function showCorrespondenceWithUser(responder) {
       var deletedUser = _.find(users, {'name': deletedUserName});
       // delete user from active responders list
       activeResponders = _.without(activeResponders, deletedUser);
+
       // if it was active responder and we have another responders ->
       // active responder -> the first responder
       // if there aren't any responders -> showInitialStatement
       if ($(this).parent().hasClass('dialog-active')) {
 
+        currentActiveResponder = '';
         if (activeResponders.length > 0) {
           var activeResponder = activeResponders[0];
           showCorrespondenceWithUser(activeResponder);
@@ -199,10 +210,7 @@ function showCorrespondenceWithUser(responder) {
       }else{
         addActiveUsers();        
       };
- 
-
     }); 
-
   }
 
   // activeDialogTemplate
@@ -265,6 +273,14 @@ function showCorrespondenceWithUser(responder) {
 
   });
 
+  // show tab "Просмотр диалогов"
+  $('.header ul li').eq(1).show();
+
+  $('.header ul li').eq(1).addClass('active');
+  $('.header ul li').eq(0).removeClass('active');
+  // save responder
+  currentActiveResponder = responder;
+
 }
 
 
@@ -285,7 +301,28 @@ function showInitialStatement(){
     showInitialStatement();
     });
 
+  $('.header>.wrap>a').click(function() {
+    showDialogs();
+    });
 
+  // hide tab "Просмотр диалогов"
+  $('.header ul li').eq(1).hide();
+
+  $('.header ul li').eq(0).click(function() {
+    if(!($(this).hasClass('active'))) {
+      showDialogs();
+    }
+  });
+
+  $('.header ul li').eq(1).click(function() {
+    if(!($(this).hasClass('active'))) {
+      if (currentActiveResponder) {
+        showCorrespondenceWithUser(currentActiveResponder); 
+      } else{
+        showCorrespondenceWithUser(activeResponders[0]);        
+      };
+    }
+  });
 }
 
 // this user's ID in users[]
@@ -294,6 +331,8 @@ var idThisUser = 1;
 var thisUser = _.find(users, {'id': idThisUser});
 // active responders list
 var activeResponders = [];
+// current active responder
+var currentActiveResponder;
 
 showInitialStatement();
 
