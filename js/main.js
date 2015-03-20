@@ -3,17 +3,15 @@ $(function(){
 // Show user list in the right column
 function showUsers() {
   // usersTemplate in templates.js
+  var usersTemplate = $('#usersTemplate').html();
   $('.right-column').html(Mustache.render(usersTemplate, { listOfUsers: users }));
   $('.right-column ul li').click(createNewMessage);
 }
 
-
-
-
-
 // Show 'create new message form' when you click on user from userllist in the right column
 function createNewMessage() {
   // stringCreateNewMessage in templates.js
+  var createNewMessageString = $('#createNewMessageString').html();
   $('.wrapper').html(createNewMessageString);
   // add message receiver name
   var newMessageRecieverName = $(this).text();
@@ -27,14 +25,16 @@ function createNewMessage() {
     // create new message
     var newMessageReciever = _.find(users, {'name': newMessageRecieverName});
     var newMessageText = $('#new-message textarea').val();
-
+    // if message is not empty
     if (newMessageText) {
       addNewMessage(newMessageReciever, newMessageText);
     };
   });
-
+  // 2 tabs are active
   $('.header ul li').eq(1).removeClass('active');
   $('.header ul li').eq(0).removeClass('active');
+  // giving focus to textarea
+  $('#new-message form textarea').focus();
 }
 
 
@@ -70,17 +70,23 @@ function getMessageTime (createdAt, vParametr) {
 
 // Show last dialog whith each user in the wrapper
 function  showDialogs() {
+  // clear wrapper
+  $('.wrapper').empty();
+  // container for last dialog with each user
+  var usersDialogList = [];
+  // get last dialog with each user
+  _.each(users, function(element){
+    var correspondenceSortedByTime = getCorrespondenceWhithUser(element.id);
+    // add the lastest dialog with this user to list
+    usersDialogList.push(_.last(correspondenceSortedByTime));
 
-  // Show dialog in the wrapper
-  function addDialog(dialogId) {
-
-    // Cut long messages to 50 symbols for showing in the dialog
-    function getMessageText(messageText) {
-      return (messageText.length < 50) ? messageText : messageText.slice(0, 47) + '...';
-    }
-
+  });
+  // sort by time
+  usersDialogList = _.sortBy(usersDialogList, function(element){ return element.created_at; }).reverse();
+  // last dialog with each user
+  _.each(usersDialogList, function(dialog){
     // index of this message in messages[]
-    var indexDialog = _.findIndex(messages, {'id': dialogId});
+    var indexDialog = _.findIndex(messages, {'id': dialog.id});
     var thisMessage = messages[indexDialog];
     
     // message sender in users[]  
@@ -94,7 +100,7 @@ function  showDialogs() {
     // reduction messageTime to view - DD Month YYYY в HH:MM:SS
     var messageTime = getMessageTime(thisMessage.created_at, ' в ');
     // Cutting the long text
-    var messageText = getMessageText(thisMessage.text); 
+    var messageText = (thisMessage.text.length < 50) ? thisMessage.text : thisMessage.text.slice(0, 47) + '...';
     // Container for saving data of the dialog
     var dialogDataContainer =  
       {
@@ -107,30 +113,10 @@ function  showDialogs() {
           }        
       }
     // render and add the dialog to wrapper
+    var dialogTemplate = $('#dialogTemplate').html();
     $('.wrapper').append(Mustache.render(dialogTemplate, dialogDataContainer));
     // If message hasn`t been read -> dark it 
-    if (!thisMessage.read_status) {$('.wrapper .dialog:last-child').addClass('notread');}; 
-  }
-
-  // collect last dialog with each user
-  function lastDialogWithUser(recipientId) {
-    var correspondenceSortedByTime = getCorrespondenceWhithUser(recipientId);
-    // add the lastest dialog with this user to list
-    usersDialogList.push(_.last(correspondenceSortedByTime));
-  }
-  // clear wrapper
-  $('.wrapper').empty();
-  // container for last dialog with each user
-  var usersDialogList = [];
-  // get last dialog with each user
-  _.each(users, function(element){
-    lastDialogWithUser(element.id);
-  });
-  // sort by time
-  usersDialogList = _.sortBy(usersDialogList, function(element){ return element.created_at; }).reverse();
-  // last dialog with each user
-  _.each(usersDialogList, function(dialog){
-    addDialog(dialog.id);
+    if (!thisMessage.read_status) {$('.wrapper .dialog:last-child').addClass('notread');};     
   });
   // onclick - show corresponder with user
   $('.dialog').click( function(){
@@ -139,7 +125,7 @@ function  showDialogs() {
     var responder = _.find(users, {'name': responder_name});
     showCorrespondenceWithUser(responder);    
   }); 
-
+  // switch 'activ' class in tabs
   $('.header ul li').eq(0).addClass('active');
   $('.header ul li').eq(1).removeClass('active');
 
@@ -170,13 +156,16 @@ function showCorrespondenceWithUser(responder) {
    // add active users in the left column
   function addActiveUsers() {
     // add list of users
+    var dialogUsersNames = $('#dialogUsersNames').html();
     $('.dialogs-with-users').html(Mustache.render(dialogUsersNames, { dialogsWhithUsers: activeResponders }));
-    // mark responder
+
     var activeUsers = $('.dialogs-with-users ul li');
     _.each(activeUsers, function(element){
+      // current user's mane
       var currentActiveUserName = $(element).children('h4').text();
+      // mark added user if he/she responder
       if (currentActiveUserName == responder.name) { $(element).addClass('dialog-active');};
-      });
+    });
 
     // click on user in the left column -> show correspondence with user
     $('.dialogs-with-users ul li').click( function(){
@@ -214,6 +203,7 @@ function showCorrespondenceWithUser(responder) {
   }
 
   // activeDialogTemplate
+  var activeDialogTemplate = $('#activeDialogTemplate').html();
   $('.wrapper').html(activeDialogTemplate);
 
   // add responder to the list of users
@@ -265,12 +255,12 @@ function showCorrespondenceWithUser(responder) {
     if (messageDataContainer.messageSender.id == idThisUser) {messageDataContainer.messageSender.name = 'Вы'};
     // show message
     var correspondence = $('#correspondence');
+    var messageTemplate = $('#messageTemplate').html();  
     correspondence.append(Mustache.render(messageTemplate, messageDataContainer));
     // scroll to bottom // correspondence[0] - get DOM element from jQuery element
     if (message == _.last(correspondenceSortedByTime)) { correspondence[0].scrollTop = correspondence[0].scrollHeight;}
     // return name of user instead of 'Вы'
     messageDataContainer.messageSender.name = messageSenderNameTemp;
-
   });
 
   // show tab "Просмотр диалогов"
@@ -280,7 +270,8 @@ function showCorrespondenceWithUser(responder) {
   $('.header ul li').eq(0).removeClass('active');
   // save responder
   currentActiveResponder = responder;
-
+  // giving focus to textarea
+  $('#it-write-form form textarea').focus();
 }
 
 
